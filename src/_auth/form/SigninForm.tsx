@@ -51,9 +51,10 @@ const SigninForm = () => {
       return toast({title: "Sign up failed. Please try again."})
     }
 
-    const isLoggedIn = await checkAuthUser();
+    try {
+      const isLoggedIn = await checkAuthUser();
 
-    console.log(isLoggedIn);
+      console.log(isLoggedIn);
 
     if (isLoggedIn) {
       form.reset();
@@ -66,6 +67,13 @@ const SigninForm = () => {
       
       return;
     }
+
+    } catch (error) {
+      alert(error);
+    }
+    
+
+    
     
   }
 

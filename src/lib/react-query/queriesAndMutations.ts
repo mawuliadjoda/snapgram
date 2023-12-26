@@ -9,7 +9,7 @@ import {
 
 import { INewUser } from '@/types';
 // import { createUserAccount } from '../appwrite/api';
-import { createUserAccount, signInAccount } from '@/lib/appwrite/api';
+import { createUserAccount, signInAccount, signOutAccount } from '@/lib/appwrite/api';
 
 
 
@@ -28,5 +28,11 @@ export const useSignInAccount = () => {
             email: string, 
             password: string
         }) => signInAccount(user),
+    });
+};
+
+export const useSignOutAccount = () => {
+    return useMutation({     
+        mutationFn: signOutAccount
     });
 };
